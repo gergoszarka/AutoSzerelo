@@ -1,8 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSzerelo", "AutoSzerelo\AutoSzerelo.csproj", "{32939F84-36C5-4495-90C0-34025E46A32D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSzerelo.UI", "AutoSzerelo.UI\AutoSzerelo.UI.csproj", "{2C7502BE-498A-440A-A297-D2739DADC9F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSzerelo.Shared", "AutoSzerelo.Shared\AutoSzerelo.Shared.csproj", "{EE3566D8-524A-40C7-89FD-B32D2016E9A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32939F84-36C5-4495-90C0-34025E46A32D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32939F84-36C5-4495-90C0-34025E46A32D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32939F84-36C5-4495-90C0-34025E46A32D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32939F84-36C5-4495-90C0-34025E46A32D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C7502BE-498A-440A-A297-D2739DADC9F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C7502BE-498A-440A-A297-D2739DADC9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C7502BE-498A-440A-A297-D2739DADC9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C7502BE-498A-440A-A297-D2739DADC9F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE3566D8-524A-40C7-89FD-B32D2016E9A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE3566D8-524A-40C7-89FD-B32D2016E9A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE3566D8-524A-40C7-89FD-B32D2016E9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE3566D8-524A-40C7-89FD-B32D2016E9A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
