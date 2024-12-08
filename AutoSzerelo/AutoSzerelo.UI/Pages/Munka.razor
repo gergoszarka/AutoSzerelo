@@ -1,6 +1,55 @@
 ﻿@page "/munka"
 <h3>Munkák</h3>
 
+
+
+
+@if (_munkak is not null)
+{
+    <h3>Ügyfelek</h3>
+    <a class="btn btn-primary" href="ugyfel/add">Ügyfél hozzáadása</a>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>Nev</td>
+            <td>Lakcim</td>
+            <td>Email</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var munka in _munkak)
+        {
+            <tr>
+                <td>@munka.UgyfelSzam</td>
+                <td>@munka.Rendszam</td>
+                <td>@munka.GyartasiEv</td>
+                <td>@munka.Leiras</td>
+                <td>@munka.HibaSuly</td>
+                <td>@munka.MunkaAllapota</td>
+                <td>
+                    <a href="munka/@munka.Id">Részletek</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Loading...</p>
+}
+
+
 @code {
+    
+    private List<Shared.Munka> _munkak;
+
+    protected override async Task OnInitializedAsync()
+    {
+        //_ugyfelek = await MunkakService.GetAllAsync();
+    }
+    
+    
     
 }

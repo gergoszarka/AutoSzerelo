@@ -1,9 +1,10 @@
 ﻿using AutoSzerelo.Shared;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoSzerelo.Controllers;
 
+[ApiController]
+[Route("ugyfel")]
 public class UgyfelController : ControllerBase
 {
     private IUgyfelService _ugyfelService;
@@ -31,9 +32,9 @@ public class UgyfelController : ControllerBase
     [HttpDelete("{id:guid}")]
     public async Task<IActionResult> Delete(Guid id)
     {
-        var person = await _ugyfelService.GetAsync(id);
+        var ugyfel = await _ugyfelService.GetAsync(id);
 
-        if (person is null)
+        if (ugyfel is null)
         {
             return NotFound();
         }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AutoSzerelo;
 
-public class UgyfelService
+public class UgyfelService : IUgyfelService
 {
     private AutoSzereloContext _context;
     private ILogger<UgyfelService> _logger;

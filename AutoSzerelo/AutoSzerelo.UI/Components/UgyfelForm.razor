@@ -1,0 +1,38 @@
+﻿@using AutoSzerelo.Shared
+<EditForm Model="Ugyfel" OnValidSubmit="() => OnValidSubmit()">
+    <DataAnnotationsValidator />
+
+    <div class="mb-3">
+        <label class="form-label">Név</label>
+        <InputText @bind-Value="Ugyfel.Nev" class="form-control" />
+        <ValidationMessage For="() => Ugyfel.Nev" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Lakcím</label>
+        <InputText @bind-Value="Ugyfel.Lakcim" class="form-control" />
+        <ValidationMessage For="() => Ugyfel.Lakcim" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <InputText @bind-Value="Ugyfel.Email" class="form-control" />
+        <ValidationMessage For="() => Ugyfel.Email" />
+    </div>
+    
+
+    <button class="btn btn-primary form-control" type="submit">@ButtonText</button>
+</EditForm>
+
+@code {
+    
+    [Parameter] public Shared.Ugyfel Ugyfel { get; set; }
+
+    [Parameter]
+    public Func<Task> OnValidSubmit { get; set; }
+
+    [Parameter]
+    public string ButtonText { get; set; }
+    
+
+}

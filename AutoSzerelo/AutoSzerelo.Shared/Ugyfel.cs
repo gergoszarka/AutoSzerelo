@@ -13,6 +13,7 @@ public class Ugyfel
     [MaxLength(15)]
     public string Nev { get; set; }
     
+    [Required]
     public string Lakcim { get; set; }
     
     [Required]

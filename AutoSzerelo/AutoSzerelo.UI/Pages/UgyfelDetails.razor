@@ -1,0 +1,61 @@
+﻿@page "/ugyfel/{id:guid}"
+@using AutoSzerelo.Shared
+@using AutoSzerelo.UI.Services
+@using AutoSzerelo.UI.Components
+@inject IUgyfelekService UgyfelekService
+@inject NavigationManager NavigationManager
+
+
+@if (_ugyfel is not null && !_errored)
+{
+    <h3>Ügyfél részletek</h3>
+
+    <UgyfelForm Ugyfel="_ugyfel" OnValidSubmit="UpdateAsync" ButtonText="Frissités" />
+
+    <button class="btn btn-danger form-control mt-3" @onclick="() => DeleteAsync()">Törlés</button>
+}
+else if (_errored)
+{
+    <div class="alert alert-danger">
+        Ügyfél nem létezik
+    </div>
+}
+else
+{
+    <p>Betöltés...</p>
+}
+
+
+@code {
+    
+    private bool _errored = false;
+    private Shared.Ugyfel _ugyfel;
+    
+    [Parameter]
+    public Guid Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _ugyfel = await UgyfelekService.GetAsync(Id);
+        }
+        catch (Exception)
+        {
+            _errored = true;
+        }
+    }
+
+    private async Task DeleteAsync()
+    {
+        await UgyfelekService.DeleteAsync(Id);
+        NavigationManager.NavigateTo("ugyfel");
+    }
+    
+    private async Task UpdateAsync()
+    {
+        await UgyfelekService.UpdateAsync(_ugyfel);
+        NavigationManager.NavigateTo("ugyfel");
+        
+    }
+}

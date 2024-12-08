@@ -1,0 +1,24 @@
+﻿@page "/ugyfel/add"
+
+@inject IUgyfelekService UgyfelekService
+@inject NavigationManager NavigationManager
+@using AutoSzerelo.UI.Services
+
+@using AutoSzerelo.UI.Components
+
+<h3>Ügyfél hozzáadása</h3>
+
+<UgyfelForm Ugyfel="_ugyfel" OnValidSubmit="AddUgyfelAsync" ButtonText="Add" />
+
+@code {
+
+    private Shared.Ugyfel _ugyfel = new();
+
+
+    private async Task AddUgyfelAsync()
+    {
+        await UgyfelekService.AddAsync(_ugyfel);
+        NavigationManager.NavigateTo("ugyfel");
+    }
+    
+}
