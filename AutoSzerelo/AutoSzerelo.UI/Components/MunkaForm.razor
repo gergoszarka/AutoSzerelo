@@ -1,0 +1,59 @@
+﻿@using AutoSzerelo.Shared
+
+<EditForm Model="Munka" OnValidSubmit="() => OnValidSubmit()">
+    <DataAnnotationsValidator />
+    
+
+    <div class="mb-3">
+        <label class="form-label">Rendszam</label>
+        <InputText @bind-Value="Munka.Rendszam" class="form-control" />
+        <ValidationMessage For="() => Munka.Rendszam" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">GyartasiEv</label>
+        <InputNumber @bind-Value="Munka.GyartasiEv" class="form-control" />
+        <ValidationMessage For="() => Munka.GyartasiEv" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">MunkaKategoria</label>
+        <InputSelect @bind-Value="Munka.MunkaKategoria" class="form-control">
+            <option value="">-- Select a Category --</option>
+            <option value="Karosszéria">Karosszéria</option>
+            <option value="Motor">Motor</option>
+            <option value="Futómű">Futómű</option>
+            <option value="Fékberendezés">Fékberendezés</option>
+        </InputSelect>
+        <ValidationMessage For="() => Munka.MunkaKategoria" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Hiba súlyossága</label>
+        <InputNumber @bind-Value="Munka.HibaSuly" class="form-control" />
+        <ValidationMessage For="() => Munka.HibaSuly" />
+    </div>
+    
+    
+    <div class="mb-3">
+        <label class="form-label">Leiras</label>
+        <InputText @bind-Value="Munka.Leiras" class="form-control" />
+        <ValidationMessage For="() => Munka.Leiras" />
+    </div>
+    
+
+    <button class="btn btn-primary form-control" type="submit">@ButtonText</button>
+</EditForm>
+
+@code {
+    
+    [Parameter] public Shared.Munka Munka { get; set; }
+
+    [Parameter]
+    public Func<Task> OnValidSubmit { get; set; }
+
+    [Parameter]
+    public string ButtonText { get; set; }
+    
+
+}

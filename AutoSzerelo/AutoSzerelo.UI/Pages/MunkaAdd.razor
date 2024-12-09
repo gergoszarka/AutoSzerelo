@@ -1,0 +1,102 @@
+﻿@page "/munka/add"
+
+@inject IMunkakService MunkakService
+@inject NavigationManager NavigationManager
+@using AutoSzerelo.UI.Services
+@using AutoSzerelo.UI.Components
+
+<h3>Munka hozzáadása</h3>
+<MunkaForm Munka="_munka" OnValidSubmit="AddMunkaAsync" ButtonText="Add" />
+
+@code {
+
+    private Shared.Munka _munka = new()
+    {
+        MunkaAllapota = 1,
+    };
+    
+
+
+    private async Task AddMunkaAsync()
+    {
+        
+        int munkagyartasiev = _munka.GyartasiEv;
+        string munkakategoria = _munka.MunkaKategoria;
+        int munkahibasuly = _munka.HibaSuly;
+
+        _munka.MunkaOra  = hibaSulyossag(munkagyartasiev, munkakategoria, munkahibasuly);
+        
+        await MunkakService.AddAsync(_munka);
+        NavigationManager.NavigateTo("munka");
+    }
+    
+   
+
+    private float hibaSulyossag(int munkagyartasiev, string munkakategoria, int hibasulyossag)
+    {
+        float munkaora=0;
+
+        switch (munkakategoria)
+        {
+            case "Karosszéria":
+                munkaora = 3;
+                break;
+            case "Motor":
+                munkaora = 8;
+                break;
+            case "Futómű":
+                munkaora = 6;
+                break;
+            case "Fékberendezés":
+                munkaora = 4;
+                break;
+            default:
+                munkaora = 0;
+                break;
+        }
+
+        int deltaev = 2024 - munkagyartasiev;
+
+        if (deltaev <=5)
+        {
+            munkaora = munkaora * 0.5f;
+        }
+        else if (deltaev <=10 && deltaev > 5)
+        {
+            munkaora = munkaora * 1.0f;
+        }
+        else if (deltaev <=20 && deltaev > 10)
+        {
+            munkaora = munkaora * 1.5f;
+        }
+        else if (deltaev > 20)
+        {
+            munkaora = munkaora * 2.0f;
+        }
+        
+        if (hibasulyossag <=2)
+        {
+            munkaora = munkaora * 0.2f;
+        }
+        else if (hibasulyossag <=4 && hibasulyossag >= 3)
+        {
+            munkaora = munkaora * 0.4f;
+        }
+        else if (hibasulyossag <=7 && hibasulyossag >= 5)
+        {
+            munkaora = munkaora * 0.6f;
+        }
+        else if (hibasulyossag <=9 && hibasulyossag >= 8)
+        {
+            munkaora = munkaora * 0.8f;
+        }
+        else if (hibasulyossag   >= 10)
+        {
+            munkaora = munkaora * 1.0f;
+        }
+       
+
+        return munkaora;
+    }
+    
+}

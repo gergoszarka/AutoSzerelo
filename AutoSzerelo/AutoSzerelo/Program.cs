@@ -17,7 +17,8 @@ builder.Services.AddDbContext<AutoSzereloContext>(options =>
     options.UseLazyLoadingProxies();
 });
 
-builder.Services.AddScoped< IUgyfelService, UgyfelService>();
+builder.Services.AddScoped<IUgyfelService, UgyfelService>();
+builder.Services.AddScoped< IMunkaService, MunkaService>();
 
 var app = builder.Build();
 

@@ -1,19 +1,27 @@
 ﻿@page "/munka"
-<h3>Munkák</h3>
 
 
+@inject IMunkakService MunkakService
+@using AutoSzerelo.Shared
+@using AutoSzerelo.UI.Services
 
 
 @if (_munkak is not null)
 {
-    <h3>Ügyfelek</h3>
-    <a class="btn btn-primary" href="ugyfel/add">Ügyfél hozzáadása</a>
+    <h3>Munkák</h3>
+    <a class="btn btn-primary" href="munka/add">Munka hozzáadása</a>
     <table class="table table-hover">
         <thead>
         <tr>
-            <td>Nev</td>
-            <td>Lakcim</td>
-            <td>Email</td>
+            <td>UgyfelSzam</td>
+            <td>Rendszam</td>
+            <td>GyartasiEv</td>
+            <td>Munka Kategória</td>
+            <td>Leiras</td>
+            <td>HibaSuly</td>
+            <td>MunkaAllapota</td>
+            <td>Munkaóra</td>
+            <td></td>
             <td></td>
         </tr>
         </thead>
@@ -24,12 +32,35 @@
                 <td>@munka.UgyfelSzam</td>
                 <td>@munka.Rendszam</td>
                 <td>@munka.GyartasiEv</td>
+                <td>@munka.MunkaKategoria</td>
                 <td>@munka.Leiras</td>
                 <td>@munka.HibaSuly</td>
-                <td>@munka.MunkaAllapota</td>
+                
+                @if(@munka.MunkaAllapota == 1)
+                {
+                    
+                    <td>Felvett munka</td>
+                }
+                @if(@munka.MunkaAllapota == 2)
+                {
+
+                    <td>Elvégzés alatt</td>
+                }
+                @if(@munka.MunkaAllapota >= 3)
+                {
+
+                    <td>Befejezett</td>
+                }
+                <td>@munka.MunkaOra</td>
+                
                 <td>
                     <a href="munka/@munka.Id">Részletek</a>
                 </td>
+                
+                <td>
+                    <button class="btn btn-primary" @onclick="() => IncrementCount(munka)">Munkatovább</button>
+                </td>
+                
             </tr>
         }
         </tbody>
@@ -43,13 +74,22 @@ else
 
 @code {
     
+    
     private List<Shared.Munka> _munkak;
 
     protected override async Task OnInitializedAsync()
     {
-        //_ugyfelek = await MunkakService.GetAllAsync();
+        _munkak = await MunkakService.GetAllAsync();
     }
-    
+    private void IncrementCount(Shared.Munka munka)
+    {
+        if (munka.MunkaAllapota < 3)
+        {
+            munka.MunkaAllapota++;
+            MunkakService.UpdateAsync(munka);
+        }
+    }
+
     
     
 }

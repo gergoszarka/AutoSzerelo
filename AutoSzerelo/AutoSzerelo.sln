@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSzerelo.UI", "AutoSzere
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSzerelo.Shared", "AutoSzerelo.Shared\AutoSzerelo.Shared.csproj", "{EE3566D8-524A-40C7-89FD-B32D2016E9A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSzerelo.UnitTest", "AutoSzerelo.UnitTest\AutoSzerelo.UnitTest.csproj", "{84E9A53E-D335-4937-874A-4CEAB3BB98B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{EE3566D8-524A-40C7-89FD-B32D2016E9A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE3566D8-524A-40C7-89FD-B32D2016E9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE3566D8-524A-40C7-89FD-B32D2016E9A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84E9A53E-D335-4937-874A-4CEAB3BB98B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84E9A53E-D335-4937-874A-4CEAB3BB98B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84E9A53E-D335-4937-874A-4CEAB3BB98B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84E9A53E-D335-4937-874A-4CEAB3BB98B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

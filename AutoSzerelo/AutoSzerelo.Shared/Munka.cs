@@ -16,8 +16,8 @@ public class Munka
     public string Rendszam { get; set; }
     
     [Required]
-    [Range(typeof(DateOnly), "1990-01-01", "2020-12-31")]
-    public DateOnly GyartasiEv { get; set; }
+    [Range(typeof(int), "1900", "2024")]
+    public int GyartasiEv { get; set; }
     
     public string MunkaKategoria { get; set; }
     
@@ -27,7 +27,11 @@ public class Munka
     [RegularExpression(@"^\d{1}$")]
     public int HibaSuly { get; set; }
     
+    [Required]
+    [RegularExpression(@"^\d{1}$")]
     public int MunkaAllapota { get; set; }
+    
+    public float MunkaOra { get; set; }
     
     
 
