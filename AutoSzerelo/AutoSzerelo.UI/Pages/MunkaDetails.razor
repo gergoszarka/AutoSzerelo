@@ -13,6 +13,7 @@
     <MunkaForm Munka="_munka" OnValidSubmit="UpdateAsync" ButtonText="Frissités" />
 
     <button class="btn btn-danger form-control mt-3" @onclick="() => DeleteAsync()">Törlés</button>
+    
 }
 else if (_errored)
 {
@@ -58,6 +59,9 @@ else
         NavigationManager.NavigateTo("munka");
         
     }
+    
+    
+    
 
     
 }

@@ -1,9 +1,9 @@
 ﻿@page "/munka"
 
-
 @inject IMunkakService MunkakService
 @using AutoSzerelo.Shared
 @using AutoSzerelo.UI.Services
+
 
 
 @if (_munkak is not null)
@@ -21,6 +21,7 @@
             <td>HibaSuly</td>
             <td>MunkaAllapota</td>
             <td>Munkaóra</td>
+            <td></td>
             <td></td>
             <td></td>
         </tr>
@@ -60,6 +61,9 @@
                 <td>
                     <button class="btn btn-primary" @onclick="() => IncrementCount(munka)">Munkatovább</button>
                 </td>
+                <td>
+                    <button class="btn btn-primary" @onclick="() => CalculateMunkaOra(munka)">Munka óra számítás</button>
+                </td>
                 
             </tr>
         }
@@ -79,7 +83,8 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        _munkak = await MunkakService.GetAllAsync();
+        _munkak = await MunkakService.GetAllAsync();        
+        
     }
     private void IncrementCount(Shared.Munka munka)
     {
@@ -88,6 +93,10 @@ else
             munka.MunkaAllapota++;
             MunkakService.UpdateAsync(munka);
         }
+    }
+    private void CalculateMunkaOra(Shared.Munka munka)
+    {
+        MunkakService.MunkaOraAsync(munka);
     }
 
     

@@ -61,7 +61,10 @@ public class MunkaService : IMunkaService
         existingMunka.Leiras = newMunka.Leiras;
         existingMunka.HibaSuly = newMunka.HibaSuly;
         existingMunka.MunkaAllapota = newMunka.MunkaAllapota;
+        existingMunka.MunkaOra = newMunka.MunkaOra;
         
         await _context.SaveChangesAsync();
     }
+
+    
 }

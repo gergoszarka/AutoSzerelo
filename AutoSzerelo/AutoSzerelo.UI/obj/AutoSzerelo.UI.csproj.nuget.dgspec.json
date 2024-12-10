@@ -13,6 +13,7 @@
         "packagesPath": "C:\\Users\\Geri\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Geri\\Desktop\\AutoSzerelo\\AutoSzerelo\\AutoSzerelo\\AutoSzerelo.Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "C:\\Users\\Geri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -68,6 +69,7 @@
         "packagesPath": "C:\\Users\\Geri\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Geri\\Desktop\\AutoSzerelo\\AutoSzerelo\\AutoSzerelo\\AutoSzerelo.UI\\obj\\",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "C:\\Users\\Geri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
