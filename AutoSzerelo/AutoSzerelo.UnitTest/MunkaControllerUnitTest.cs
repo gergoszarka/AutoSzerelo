@@ -13,10 +13,8 @@ namespace AutoSzerelo.UnitTest
 
         public MunkaControllerUnitTest()
         {
-            // Mock the IMunkaService
             _mockMunkaService = new Mock<IMunkaService>();
             
-            // Instantiate the controller with the mocked service
             _controller = new MunkaController(_mockMunkaService.Object);
         }
 
@@ -41,7 +39,7 @@ namespace AutoSzerelo.UnitTest
             // Arrange
             var newMunka = new Munka { Id = Guid.NewGuid() };
             _mockMunkaService.Setup(service => service.GetAsync(newMunka.Id))
-                             .ReturnsAsync((Munka)null); // Ensuring it doesn't exist yet
+                             .ReturnsAsync((Munka)null);
 
             // Act
             var result = await _controller.Add(newMunka);

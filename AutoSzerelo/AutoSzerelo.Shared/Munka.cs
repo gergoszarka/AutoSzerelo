@@ -24,7 +24,7 @@ public class Munka
     public string Leiras { get; set; }
     
     [Required]
-    [RegularExpression(@"^\d{1}$")]
+    [RegularExpression(@"^(10|[1-9])$")]
     public int HibaSuly { get; set; }
     
     [Required]

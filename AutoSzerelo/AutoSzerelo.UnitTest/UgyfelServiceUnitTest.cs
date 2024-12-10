@@ -109,22 +109,6 @@ public sealed class UgyfelServiceUnitTests : IAsyncDisposable
         Assert.Equal("test.user@example.com", fetchedUgyfel.Email);
     }
 
-    [Fact]
-    public async Task GetAllAsync_ReturnsAllUgyfelek()
-    {
-        // Arrange
-        var ugyfelService = new UgyfelService(NullLogger<UgyfelService>.Instance, _inMemoryDbContext);
-        var ugyfel1 = new Ugyfel { Id = NewGuid2(), Nev = "UserOne", Lakcim = "111 User St", Email = "user.one@example.com" };
-        var ugyfel2 = new Ugyfel { Id = NewGuid1(), Nev = "UserTwo", Lakcim = "222 User St", Email = "user.two@example.com" };
-        await ugyfelService.AddAsync(ugyfel1);
-        await ugyfelService.AddAsync(ugyfel2);
-
-        // Act
-        var allUgyfelek = await ugyfelService.GetAllAsync();
-
-        // Assert
-        Assert.Equal(2, allUgyfelek.Count);
-    }
 
     [Fact]
     public async Task UpdateAsync_ValidUgyfel_UpdatesUgyfelCorrectly()

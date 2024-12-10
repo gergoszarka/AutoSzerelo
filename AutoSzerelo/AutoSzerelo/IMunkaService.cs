@@ -14,5 +14,7 @@ public interface IMunkaService
     Task<List<Munka>> GetAllAsync();
 
     Task UpdateAsync(Munka newMunka);
-    
+
+    Task MunkaOraAsync(Munka newMunka);
+
 }
