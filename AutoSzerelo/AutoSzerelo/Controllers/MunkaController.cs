@@ -81,7 +81,8 @@ public class MunkaController : ControllerBase
         await _munkaService.UpdateAsync(newMunka);
 
         return Ok();
-    }[HttpPut("{id:guid}")]
+    }
+    [HttpPatch("{id:guid}")]
     public async Task<IActionResult> MunkaOraAsync(Guid id, [FromBody] Munka newMunka)
     {
         if (id != newMunka.Id)

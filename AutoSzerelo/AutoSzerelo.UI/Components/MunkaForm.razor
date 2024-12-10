@@ -5,21 +5,21 @@
     
 
     <div class="mb-3">
-        <label class="form-label">Rendszam</label>
+        <label class="form-label">Rendszám</label>
         <InputText @bind-Value="Munka.Rendszam" class="form-control" />
         <ValidationMessage For="() => Munka.Rendszam" />
     </div>
 
     <div class="mb-3">
-        <label class="form-label">GyartasiEv</label>
+        <label class="form-label">Gyártási év</label>
         <InputNumber @bind-Value="Munka.GyartasiEv" class="form-control" />
         <ValidationMessage For="() => Munka.GyartasiEv" />
     </div>
 
     <div class="mb-3">
-        <label class="form-label">MunkaKategoria</label>
+        <label class="form-label">Munka kategória</label>
         <InputSelect @bind-Value="Munka.MunkaKategoria" class="form-control">
-            <option value="">-- Select a Category --</option>
+            <option value="">-- Válasszon az alábbiak közül --</option>
             <option value="Karosszéria">Karosszéria</option>
             <option value="Motor">Motor</option>
             <option value="Futómű">Futómű</option>
@@ -36,7 +36,7 @@
     
     
     <div class="mb-3">
-        <label class="form-label">Leiras</label>
+        <label class="form-label">Leíras</label>
         <InputText @bind-Value="Munka.Leiras" class="form-control" />
         <ValidationMessage For="() => Munka.Leiras" />
     </div>
